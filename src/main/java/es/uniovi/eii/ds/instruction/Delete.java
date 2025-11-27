@@ -2,18 +2,16 @@ package es.uniovi.eii.ds.instruction;
 
 import es.uniovi.eii.ds.core.Document;
 
-public class Insert implements Instruction{
+public class Delete implements Instruction{
 	private Document document;
-	private String[] args;
 	
-	public Insert(Document document, String[] args) {
+	public Delete(Document document) {
 		this.document = document;
-		this.args = args;
 	}
 
 	@Override
 	public void execute() {
-		document.insert(args);
+		document.delete();
 	}
 	
 }
