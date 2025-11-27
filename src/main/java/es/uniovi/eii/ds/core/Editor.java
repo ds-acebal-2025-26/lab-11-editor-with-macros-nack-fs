@@ -33,6 +33,10 @@ public class Editor {
 		isRecording(new Replace(document, args));
 	}
 	
+	public void showText() {
+		document.showText();
+	}
+	
 	public void recordMacro(String name) {
 		if(macroName==null) {
 			macroName = name;
