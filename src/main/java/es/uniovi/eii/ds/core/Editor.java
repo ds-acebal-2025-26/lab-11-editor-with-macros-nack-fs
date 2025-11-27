@@ -8,6 +8,7 @@ import java.util.Map;
 import es.uniovi.eii.ds.instruction.Delete;
 import es.uniovi.eii.ds.instruction.Insert;
 import es.uniovi.eii.ds.instruction.Instruction;
+import es.uniovi.eii.ds.instruction.Macro;
 import es.uniovi.eii.ds.instruction.Open;
 import es.uniovi.eii.ds.instruction.Replace;
 
@@ -56,11 +57,10 @@ public class Editor {
 	}
 	
 	public void executeMacro(String name) {
-		List<Instruction> m = macros.get(name);
-		if(m!=null) {
-			for(Instruction i : m) {
-				i.execute();
-			}
+		List<Instruction> instructions = macros.get(name);
+		if(instructions!=null) {
+			isRecording(new Macro(instructions));
+			
 		}else {
 			System.out.println("No existe ninguna macro llamada: "+name);
 		}
